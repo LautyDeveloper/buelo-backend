@@ -2,6 +2,8 @@ import express from "express"
 import turnoRoutes from "./routes/turno.routes.js"
 import pool from "./database/connection.js"
 import personasMayoresRoutes from './routes/personasMayores.routes.js';
+import notasRoutes from './routes/notas.routes.js';
+import medicacionesRoutes from './routes/medicaciones.routes.js';
 
 
 const app = express();
@@ -22,6 +24,8 @@ pool.getConnection((err, connection) => {
 // Rutas
 app.use('/turnos', turnoRoutes);
 app.use('/personas-mayores', personasMayoresRoutes);
+app.use('/notas', notasRoutes);
+app.use('/medicaciones', medicacionesRoutes);
 
 
 app.listen(PORT, () => {
