@@ -1,6 +1,7 @@
 import express from "express"
 import turnoRoutes from "./routes/turno.routes.js"
 import pool from "./database/connection.js"
+import personasMayoresRoutes from './routes/personasMayores.routes.js';
 
 
 const app = express();
@@ -20,6 +21,8 @@ pool.getConnection((err, connection) => {
 
 // Rutas
 app.use('/turnos', turnoRoutes);
+app.use('/personas-mayores', personasMayoresRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`🔥 Servidor corriendo en http://localhost:${PORT}`);
