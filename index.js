@@ -4,9 +4,12 @@ import pool from "./database/connection.js"
 import personasMayoresRoutes from './routes/personasMayores.routes.js';
 import notasRoutes from './routes/notas.routes.js';
 import medicacionesRoutes from './routes/medicaciones.routes.js';
+import { corsMiddleware } from "./middlewares/cors.js";
 
 
 const app = express();
+app.use(corsMiddleware())
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
