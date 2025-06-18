@@ -11,15 +11,21 @@ export const getNotas = async (req, res) => {
 };
 
 export const getNotasByPersona = async (req, res) => {
-  const { id } = req.params;
+  const personaId = req.query.personaId;
+
+    if (!personaId) {
+    return res.status(400).json({ error: "Falta el parámetro personaId" });
+  }
   try {
-    const notas = await notasModel.getNotasByPersonaMayor(id);
+    const notas = await notasModel.getNotasByPersonaMayor(personaId);
     res.json(notas);
   } catch (error) {
-    console.error('Error al obtener las notas por persona mayor:', error.message);
+    console.error('Error al obtener las notas', error.message);
     res.status(500).json({ error: 'Error al obtener las notas' });
   }
 };
+
+
 
 export const postNota = async (req, res) => {
   const nuevaNota = req.body;

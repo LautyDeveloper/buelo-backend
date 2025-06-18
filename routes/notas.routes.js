@@ -7,8 +7,7 @@ import {
 
 const router = Router();
 
-router.get('/', getNotas);
-router.get('/:id', getNotasByPersona);
+router.get('/', getNotasByPersona);
 router.post('/', postNota);
 
 export default router;
