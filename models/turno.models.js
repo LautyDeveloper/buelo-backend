@@ -15,6 +15,26 @@ export const getAllTurnos = async () => {
   return rows;
 };
 
+export const getTurnosPorPersonaId = async (personaId) =>{
+  const [rows] = await pool.query(
+    `
+    SELECT 
+      BIN_TO_UUID(id) AS id,
+      especialidad,
+      profesional,
+      lugar,
+      dia,
+      hora
+    FROM Turnos
+    WHERE persona_mayor_id = UUID_TO_BIN(?)
+    ORDER BY dia ASC, hora ASC
+    `,
+    [personaId]
+  );
+
+  return rows;
+}
+
 export const getTurnoById = async (id) => {
   const [rows] = await pool.query(`
     SELECT 

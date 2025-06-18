@@ -19,6 +19,22 @@ export const getTurno = async (req, res) => {
   }
 };
 
+export async function getTurnosByPersona(req, res) {
+  const personaId = req.query.personaId;
+
+  if (!personaId) {
+    return res.status(400).json({ error: "Falta el parámetro personaId" });
+  }
+
+  try {
+    const turnos = await TurnoModel.getTurnosPorPersonaId(personaId);
+    res.json(turnos);
+  } catch (error) {
+    console.error("Error al obtener turnos:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+}
+
 export const postTurno = async (req, res) => {
   try {
     const nuevoTurno = await TurnoModel.createTurno(req.body);

@@ -4,11 +4,12 @@ import {
   getTurno,
   postTurno,
   deleteTurno,
+  getTurnosByPersona
 } from '../controllers/turno.controllers.js';
 
 const router = Router();
 
-router.get('/', getTurnos);
+router.get('/', getTurnosByPersona);
 router.get('/:id', getTurno);
 router.post('/', postTurno);
 router.delete('/:id', deleteTurno);
