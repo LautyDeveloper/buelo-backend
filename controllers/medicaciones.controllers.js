@@ -11,12 +11,16 @@ export const getMedicaciones = async (req, res) => {
 };
 
 export const getMedicacionesByPersona = async (req, res) => {
-  const { id } = req.params;
+  const personaId = req.query.personaId;
+
+  if (!personaId) {
+    return res.status(400).json({ error: "Falta el parámetro personaId" });
+  }
   try {
-    const medicaciones = await medicacionesModel.getMedicacionesByPersonaMayor(id);
+    const medicaciones = await medicacionesModel.getMedicacionesByPersonaMayor(personaId);
     res.json(medicaciones);
   } catch (error) {
-    console.error('Error al obtener las medicaciones por persona mayor:', error.message);
+    console.error('Error al obtener las medicaciones', error.message);
     res.status(500).json({ error: 'Error al obtener las medicaciones' });
   }
 };
