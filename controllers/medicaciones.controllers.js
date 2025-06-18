@@ -1,15 +1,5 @@
 import * as medicacionesModel from '../models/medicaciones.models.js';
 
-export const getMedicaciones = async (req, res) => {
-  try {
-    const medicaciones = await medicacionesModel.getAllMedicaciones();
-    res.json(medicaciones);
-  } catch (error) {
-    console.error('Error al obtener las medicaciones:', error.message);
-    res.status(500).json({ error: 'Error al obtener las medicaciones' });
-  }
-};
-
 export const getMedicacionesByPersona = async (req, res) => {
   const personaId = req.query.personaId;
 

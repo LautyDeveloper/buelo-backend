@@ -1,20 +1,5 @@
 import pool from '../database/connection.js';
 
-export const getAllTurnos = async () => {
-  const [rows] = await pool.query(`
-    SELECT 
-      BIN_TO_UUID(id) AS id,
-      BIN_TO_UUID(persona_mayor_id) AS persona_mayor_id,
-      dia,
-      hora,
-      especialidad,
-      profesional,
-      lugar
-    FROM Turnos
-  `);
-  return rows;
-};
-
 export const getTurnosPorPersonaId = async (personaId) =>{
   const [rows] = await pool.query(
     `

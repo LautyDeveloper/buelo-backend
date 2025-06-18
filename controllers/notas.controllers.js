@@ -1,15 +1,4 @@
 import * as notasModel from '../models/notas.models.js';
-
-export const getNotas = async (req, res) => {
-  try {
-    const notas = await notasModel.getAllNotas();
-    res.json(notas);
-  } catch (error) {
-    console.error('Error al obtener las notas:', error.message);
-    res.status(500).json({ error: 'Error al obtener las notas' });
-  }
-};
-
 export const getNotasByPersona = async (req, res) => {
   const personaId = req.query.personaId;
 
@@ -24,8 +13,6 @@ export const getNotasByPersona = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener las notas' });
   }
 };
-
-
 
 export const postNota = async (req, res) => {
   const nuevaNota = req.body;

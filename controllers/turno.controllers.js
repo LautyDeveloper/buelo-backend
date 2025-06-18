@@ -1,13 +1,5 @@
 import * as TurnoModel from '../models/turno.models.js';
 
-export const getTurnos = async (req, res) => {
-  try {
-    const turnos = await TurnoModel.getAllTurnos();
-    res.json(turnos);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
 
 export const getTurno = async (req, res) => {
   try {

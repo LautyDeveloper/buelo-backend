@@ -1,18 +1,5 @@
 import pool from '../database/connection.js';
 
-export const getAllMedicaciones = async () => {
-  const [rows] = await pool.query(
-    `SELECT BIN_TO_UUID(id) AS id,
-            BIN_TO_UUID(persona_mayor_id) AS persona_mayor_id,
-            nombre_medicacion,
-            frecuencia,
-            dosis,
-            horarios
-     FROM Medicaciones`
-  );
-  return rows;
-};
-
 export const getMedicacionesByPersonaMayor = async (personaMayorId) => {
   const [rows] = await pool.query(
     `SELECT BIN_TO_UUID(id) AS id,

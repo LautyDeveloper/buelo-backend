@@ -1,18 +1,5 @@
 import pool from '../database/connection.js';
 
-export const getAllNotas = async () => {
-  const [rows] = await pool.query(
-    `SELECT BIN_TO_UUID(id) AS id,
-            BIN_TO_UUID(persona_mayor_id) AS persona_mayor_id,
-            BIN_TO_UUID(familiar_id) AS familiar_id,
-            titulo,
-            fecha_hora,
-            cuerpo
-     FROM Notas`
-  );
-  return rows;
-};
-
 export const getNotasByPersonaMayor = async (personaMayorId) => {
   const [rows] = await pool.query(
     `SELECT BIN_TO_UUID(id) AS id,

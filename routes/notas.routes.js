@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import {
-  getNotas,
   getNotasByPersona,
   postNota
 } from '../controllers/notas.controllers.js';
