@@ -4,6 +4,7 @@ import pool from "./database/connection.js"
 import personasMayoresRoutes from './routes/personasMayores.routes.js';
 import notasRoutes from './routes/notas.routes.js';
 import medicacionesRoutes from './routes/medicaciones.routes.js';
+import mainRoutes from './routes/mainPersonaMayor.routes.js';
 import { corsMiddleware } from "./middlewares/cors.js";
 
 
@@ -29,6 +30,7 @@ app.use('/turnos', turnoRoutes);
 app.use('/personas-mayores', personasMayoresRoutes);
 app.use('/notas', notasRoutes);
 app.use('/medicaciones', medicacionesRoutes);
+app.use('/resumen', mainRoutes);
 
 
 app.listen(PORT, () => {
