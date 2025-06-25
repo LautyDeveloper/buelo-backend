@@ -1,8 +1,8 @@
 import express from "express";
-import { getResumenPersonaMayor } from "../controllers/mainPersonaMayor.controllers.js";
+import { getSummaryElderlyPerson } from "../controllers/mainPersonaMayor.controllers.js";
 
 const router = express.Router();
 
-router.get("/", getResumenPersonaMayor);
+router.get("/", getSummaryElderlyPerson);
 
 export default router;

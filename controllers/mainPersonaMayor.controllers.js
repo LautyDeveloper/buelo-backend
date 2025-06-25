@@ -9,21 +9,21 @@ import {
   getMedicationsByPersonId,
 } from "../models/medicaciones.models.js";
 
-export async function getResumenPersonaMayor(req, res) {
+export async function getSummaryElderlyPerson(req, res) {
   try {
-  const personaId = req.query.personaId;
+  const personId = req.query.personId;
 
-    if (!personaId) {
+    if (!personId) {
     return res.status(400).json({ error: "Falta el parámetro personaId" });
   }
 
-    const [turnos, notas, medicaciones] = await Promise.all([
-      getShiftsByPersonId(personaId),
-      getNotesByPersonId(personaId),
-      getMedicationsByPersonId(personaId),
+    const [shifts, notes, medications] = await Promise.all([
+      getShiftsByPersonId(personId),
+      getNotesByPersonId(personId),
+      getMedicationsByPersonId(personId),
     ]);
 
-    res.json({ turnos, notas, medicaciones });
+    res.json({ shifts, notes, medications });
   } catch (error) {
     console.error("Error al obtener el resumen:", error);
     res.status(500).json({ message: "Error interno del servidor" });
