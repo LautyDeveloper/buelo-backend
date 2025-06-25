@@ -19,7 +19,7 @@ export async function getShiftsByPerson(req, res) {
   }
 
   try {
-    const shifts = await ShiftModel.getShiftsByPersonId(personaId);
+    const shifts = await ShiftModel.getShiftsByPersonId(personId);
     res.json(shifts);
   } catch (error) {
     console.error("Error al obtener turnos:", error);
