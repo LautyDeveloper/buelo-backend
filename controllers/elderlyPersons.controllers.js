@@ -1,4 +1,4 @@
-import * as personasMayoresModel from '../models/personasMayores.models.js';
+import * as personasMayoresModel from '../models/elderlyPersons.models.js';
 
 export const getAllPersonasMayores = async (req, res) => {
   try {
