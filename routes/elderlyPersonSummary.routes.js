@@ -1,5 +1,5 @@
 import express from "express";
-import { getSummaryElderlyPerson } from "../controllers/mainPersonaMayor.controllers.js";
+import { getSummaryElderlyPerson } from "../controllers/elderlyPersonSummary.controllers.js";
 
 const router = express.Router();
 

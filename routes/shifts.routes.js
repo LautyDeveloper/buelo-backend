@@ -4,7 +4,7 @@ import {
   getShiftsByPerson,
   postShift,
   deleteShift
-} from '../controllers/turno.controllers.js';
+} from '../controllers/shifts.controllers.js';
 
 const router = Router();
 

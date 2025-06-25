@@ -1,4 +1,4 @@
-import * as medicationsModel from '../models/medicaciones.models.js';
+import * as medicationsModel from '../models/medications.models.js';
 
 export const getMedicationsByPerson = async (req, res) => {
   const personId = req.query.personId;

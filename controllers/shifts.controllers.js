@@ -1,4 +1,4 @@
-import * as ShiftModel from '../models/turno.models.js';
+import * as ShiftModel from '../models/shifts.models.js';
 
 
 export const getShift = async (req, res) => {

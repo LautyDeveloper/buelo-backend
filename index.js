@@ -1,10 +1,10 @@
 import express from "express"
-import turnoRoutes from "./routes/turno.routes.js"
+import turnoRoutes from "./routes/shifts.routes.js"
 import pool from "./database/connection.js"
-import personasMayoresRoutes from './routes/personasMayores.routes.js';
-import notasRoutes from './routes/notas.routes.js';
-import medicacionesRoutes from './routes/medicaciones.routes.js';
-import mainRoutes from './routes/mainPersonaMayor.routes.js';
+import personasMayoresRoutes from './routes/elderlyPersons.routes.js';
+import notasRoutes from './routes/notes.routes.js';
+import medicacionesRoutes from './routes/medication.routes.js';
+import mainRoutes from './routes/elderlyPersonSummary.routes.js';
 import { corsMiddleware } from "./middlewares/cors.js";
 
 

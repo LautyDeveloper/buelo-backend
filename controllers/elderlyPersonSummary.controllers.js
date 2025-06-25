@@ -1,13 +1,13 @@
 // controllers/personasMayoresController.js
 import {
   getNotesByPersonId,
-} from "../models/notas.models.js";
+} from "../models/notes.models.js";
 import {
   getShiftsByPersonId,
-} from "../models/turno.models.js";
+} from "../models/shifts.models.js";
 import {
   getMedicationsByPersonId,
-} from "../models/medicaciones.models.js";
+} from "../models/medications.models.js";
 
 export async function getSummaryElderlyPerson(req, res) {
   try {

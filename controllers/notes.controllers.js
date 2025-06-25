@@ -1,4 +1,4 @@
-import * as notesModel from '../models/notas.models.js';
+import * as notesModel from '../models/notes.models.js';
 export const getNotesByPerson = async (req, res) => {
   const personId = req.query.personId;
 

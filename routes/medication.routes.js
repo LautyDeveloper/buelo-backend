@@ -2,7 +2,7 @@ import { Router } from 'express';
 import {
   getMedicationsByPerson,
   postMedication
-} from '../controllers/medicaciones.controllers.js';
+} from '../controllers/medications.controllers.js';
 
 const router = Router();
 

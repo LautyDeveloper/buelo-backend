@@ -2,7 +2,7 @@ import { Router } from 'express';
 import {
   getNotesByPerson,
   postNote
-} from '../controllers/notas.controllers.js';
+} from '../controllers/notes.controllers.js';
 
 const router = Router();
 
