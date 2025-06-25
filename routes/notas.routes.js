@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import {
-  getNotasByPersona,
-  postNota
+  getNotesByPerson,
+  postNote
 } from '../controllers/notas.controllers.js';
 
 const router = Router();
 
-router.get('/', getNotasByPersona);
-router.post('/', postNota);
+router.get('/', getNotesByPerson);
+router.post('/', postNote);
 
 export default router;
