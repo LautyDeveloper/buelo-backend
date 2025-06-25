@@ -26,11 +26,11 @@ pool.getConnection((err, connection) => {
 });
 
 // Rutas
-app.use('/turnos', turnoRoutes);
-app.use('/personas-mayores', personasMayoresRoutes);
-app.use('/notas', notasRoutes);
-app.use('/medicaciones', medicacionesRoutes);
-app.use('/resumen', mainRoutes);
+app.use('/shifts', turnoRoutes);
+app.use('/elderly-persons', personasMayoresRoutes);
+app.use('/notes', notasRoutes);
+app.use('/medications', medicacionesRoutes);
+app.use('/summary', mainRoutes);
 
 
 app.listen(PORT, () => {
