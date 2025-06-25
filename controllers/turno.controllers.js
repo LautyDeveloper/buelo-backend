@@ -1,44 +1,44 @@
-import * as TurnoModel from '../models/turno.models.js';
+import * as ShiftModel from '../models/turno.models.js';
 
 
-export const getTurno = async (req, res) => {
+export const getShift = async (req, res) => {
   try {
-    const turno = await TurnoModel.getTurnoById(req.params.id);
-    if (!turno) return res.status(404).json({ error: 'Turno no encontrado' });
-    res.json(turno);
+    const shift = await ShiftModel.getShiftById(req.params.id);
+    if (!shift) return res.status(404).json({ error: 'Turno no encontrado' });
+    res.json(shift);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-export async function getTurnosByPersona(req, res) {
-  const personaId = req.query.personaId;
+export async function getShiftsByPerson(req, res) {
+  const personId = req.query.personId;
 
-  if (!personaId) {
+  if (!personId) {
     return res.status(400).json({ error: "Falta el parámetro personaId" });
   }
 
   try {
-    const turnos = await TurnoModel.getTurnosPorPersonaId(personaId);
-    res.json(turnos);
+    const shifts = await ShiftModel.getShiftsByPersonId(personaId);
+    res.json(shifts);
   } catch (error) {
     console.error("Error al obtener turnos:", error);
     res.status(500).json({ error: "Error interno del servidor" });
   }
 }
 
-export const postTurno = async (req, res) => {
+export const postShift = async (req, res) => {
   try {
-    const nuevoTurno = await TurnoModel.createTurno(req.body);
-    res.status(201).json({ message: 'Turno creado', insertId: nuevoTurno.insertId });
+    const newShift = await ShiftModel.createShift(req.body);
+    res.status(201).json({ message: 'Turno creado', insertId: newShift.insertId });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-export const deleteTurno = async (req, res) => {
+export const deleteShift = async (req, res) => {
   try {
-    await TurnoModel.deleteTurno(req.params.id);
+    await ShiftModel.deleteTurno(req.params.id);
     res.json({ message: 'Turno eliminado' });
   } catch (err) {
     res.status(500).json({ error: err.message });

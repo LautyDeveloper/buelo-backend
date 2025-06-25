@@ -1,16 +1,16 @@
 import { Router } from 'express';
 import {
-  getTurno,
-  postTurno,
-  deleteTurno,
-  getTurnosByPersona
+  getShift,
+  getShiftsByPerson,
+  postShift,
+  deleteShift
 } from '../controllers/turno.controllers.js';
 
 const router = Router();
 
-router.get('/', getTurnosByPersona);
-router.get('/:id', getTurno);
-router.post('/', postTurno);
-router.delete('/:id', deleteTurno);
+router.get('/', getShiftsByPerson);
+router.get('/:id', getShift);
+router.post('/', postShift);
+router.delete('/:id', deleteShift);
 
 export default router;

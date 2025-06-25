@@ -3,7 +3,7 @@ import {
   getNotasByPersonaMayor,
 } from "../models/notas.models.js";
 import {
-  getTurnosPorPersonaId,
+  getShiftsByPersonId,
 } from "../models/turno.models.js";
 import {
   getMedicacionesByPersonaMayor,
@@ -18,7 +18,7 @@ export async function getResumenPersonaMayor(req, res) {
   }
 
     const [turnos, notas, medicaciones] = await Promise.all([
-      getTurnosPorPersonaId(personaId),
+      getShiftsByPersonId(personaId),
       getNotasByPersonaMayor(personaId),
       getMedicacionesByPersonaMayor(personaId),
     ]);

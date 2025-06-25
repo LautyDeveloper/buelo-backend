@@ -1,6 +1,6 @@
 import pool from '../database/connection.js';
 
-export const getTurnosPorPersonaId = async (personaId) =>{
+export const getShiftsByPersonId = async (personId) =>{
   const [rows] = await pool.query(
     `
     SELECT 
@@ -14,13 +14,13 @@ export const getTurnosPorPersonaId = async (personaId) =>{
     WHERE persona_mayor_id = UUID_TO_BIN(?)
     ORDER BY dia ASC, hora ASC
     `,
-    [personaId]
+    [personId]
   );
 
   return rows;
 }
 
-export const getTurnoById = async (id) => {
+export const getShiftById = async (id) => {
   const [rows] = await pool.query(`
     SELECT 
       BIN_TO_UUID(id) AS id,
@@ -36,8 +36,8 @@ export const getTurnoById = async (id) => {
   return rows[0];
 };
 
-export const createTurno = async (turno) => {
-  const { persona_mayor_id, dia, hora, especialidad, profesional, lugar } = turno;
+export const createShift = async (shift) => {
+  const { persona_mayor_id, dia, hora, especialidad, profesional, lugar } = shift;
   const [result] = await pool.query(`
     INSERT INTO Turnos (
       id,
@@ -55,7 +55,7 @@ export const createTurno = async (turno) => {
   return result;
 };
 
-export const deleteTurno = async (id) => {
+export const deleteShift = async (id) => {
   const [result] = await pool.query(`
     DELETE FROM Turnos
     WHERE id = UUID_TO_BIN(?)
