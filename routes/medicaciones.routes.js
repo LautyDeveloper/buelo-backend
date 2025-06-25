@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import {
-  getMedicacionesByPersona,
-  postMedicacion
+  getMedicationsByPerson,
+  postMedication
 } from '../controllers/medicaciones.controllers.js';
 
 const router = Router();
 
-router.get('/', getMedicacionesByPersona);
-router.post('/', postMedicacion);
+router.get('/', getMedicationsByPerson);
+router.post('/', postMedication);
 
 export default router;

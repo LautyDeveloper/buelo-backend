@@ -6,7 +6,7 @@ import {
   getShiftsByPersonId,
 } from "../models/turno.models.js";
 import {
-  getMedicacionesByPersonaMayor,
+  getMedicationsByPersonId,
 } from "../models/medicaciones.models.js";
 
 export async function getResumenPersonaMayor(req, res) {
@@ -20,7 +20,7 @@ export async function getResumenPersonaMayor(req, res) {
     const [turnos, notas, medicaciones] = await Promise.all([
       getShiftsByPersonId(personaId),
       getNotesByPersonId(personaId),
-      getMedicacionesByPersonaMayor(personaId),
+      getMedicationsByPersonId(personaId),
     ]);
 
     res.json({ turnos, notas, medicaciones });
