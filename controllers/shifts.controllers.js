@@ -29,12 +29,10 @@ export async function getShiftsByPerson(req, res) {
 
 export const postShift = async (req, res) => {
   try {
-        console.log("Cuerpo recibido:", req.body); // 👈 LOGGUEÁ ESTO
 
     const newShift = await ShiftModel.createShift(req.body);
     res.status(201).json({ message: 'Turno creado', insertId: newShift.insertId });
   } catch (err) {
-        console.error("Error al crear turno:", err); // 👈 también loggueá esto
 
     res.status(500).json({ error: err.message });
   }
@@ -42,7 +40,7 @@ export const postShift = async (req, res) => {
 
 export const deleteShift = async (req, res) => {
   try {
-    await ShiftModel.deleteTurno(req.params.id);
+    await ShiftModel.deleteShift(req.params.id);
     res.json({ message: 'Turno eliminado' });
   } catch (err) {
     res.status(500).json({ error: err.message });
