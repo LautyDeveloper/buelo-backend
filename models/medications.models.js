@@ -23,3 +23,11 @@ export const createMedication = async ({ persona_mayor_id, nombre_medicacion, fr
   );
   return result;
 };
+
+export const deleteMedication = async (id) => {
+  const [result] = await pool.query(`
+    DELETE FROM Medicaciones
+    WHERE id = UUID_TO_BIN(?)
+  `, [id]);
+  return result;
+};
