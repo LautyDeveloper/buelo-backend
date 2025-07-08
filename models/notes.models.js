@@ -23,3 +23,11 @@ export const createNote = async ({ persona_mayor_id, familiar_id, titulo, cuerpo
   );
   return result;
 };
+
+export const deleteNote = async (id) => {
+  const [result] = await pool.query(`
+    DELETE FROM Notas
+    WHERE id = UUID_TO_BIN(?)
+  `, [id]);
+  return result;
+};

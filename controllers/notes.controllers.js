@@ -24,3 +24,12 @@ export const postNote = async (req, res) => {
     res.status(500).json({ error: 'Error al crear la nota' });
   }
 };
+
+export const deleteNote = async (req, res) => {
+  try {
+    await notesModel.deleteNote(req.params.id);
+    res.json({ message: 'Nota eliminada' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
