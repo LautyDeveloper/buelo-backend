@@ -17,7 +17,7 @@ export const getNotesByPerson = async (req, res) => {
 export const postNote = async (req, res) => {
   const nuevaNota = req.body;
   try {
-    const result = await notesModel.createNota(nuevaNota);
+    const result = await notesModel.createNote(nuevaNota);
     res.status(201).json({ message: 'Nota creada con éxito', insertId: result.insertId });
   } catch (error) {
     console.error('Error al crear nota:', error.message);
